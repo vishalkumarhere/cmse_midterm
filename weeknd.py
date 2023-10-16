@@ -8,7 +8,7 @@ spotify_data = pd.read_csv('spotify_top_songs.csv')
 kworb_data = pd.read_csv('https://github.com/vishalkumarhere/cmse_midterm/raw/main/kworb_global.csv')
 
 # Create a Streamlit app
-st.title("Data Visualization App")
+st.title("The Weeknd Analysis")
 
 # Filters with default "Select All" option
 selected_rows = st.multiselect("Select Rows", spotify_data['Title'].unique())
