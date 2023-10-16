@@ -10,13 +10,18 @@ kworb_data = pd.read_excel('kworb_global.xlsx')
 st.title("Data Visualization App")
 
 # Filters with default "Select All" option
-selected_rows = st.multiselect("Select Rows", spotify_data['Title'].unique(), default=spotify_data['Title'].unique())
-selected_country = st.multiselect("Select Country", kworb_data.columns[5:], default=kworb_data.columns[5:])
-selected_song = st.multiselect("Select Song", kworb_data['Title'].unique(), default=kworb_data['Title'].unique())
+selected_rows = st.multiselect("Select Rows", spotify_data['Title'].unique())
+selected_country = st.multiselect("Select Country", kworb_data.columns[3:], key='country_filter')
+selected_song = st.multiselect("Select Song", kworb_data['Title'].unique(), key='song_filter')
+
+# Create a filter dynamically based on selected countries
+country_filter = ['US']
+# country_filters = [kworb_data[country].isin(selected_country) for country in selected_country]
+# country_filter = pd.concat(country_filters, axis=1).any(axis=1)
 
 # Apply filters to the data
 filtered_spotify_data = spotify_data[spotify_data['Title'].isin(selected_rows)]
-filtered_kworb_data = kworb_data[kworb_data['Global'].isin(selected_country) & kworb_data['Title'].isin(selected_song)]
+filtered_kworb_data = kworb_data[country_filter & kworb_data['Title'].isin(selected_rows)]
 
 # Plot charts
 st.header("Charts")
