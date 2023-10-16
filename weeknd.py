@@ -3,8 +3,9 @@ import pandas as pd
 import plotly.express as px
 
 # Load the CSV files
+kworb = 'https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fvishalkumarhere%2Fcmse_midterm%2Fmain%2Fkworb_global.xlsx&wdOrigin=BROWSELINK'
 spotify_data = pd.read_csv('spotify_top_songs.csv')
-kworb_data = pd.read_excel('kworb_global.xlsx')
+kworb_data = pd.read_excel(kworb)
 
 # Create a Streamlit app
 st.title("Data Visualization App")
