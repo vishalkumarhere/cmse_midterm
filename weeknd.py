@@ -10,9 +10,6 @@ spotify_data = pd.read_csv("spotify_top_songs.csv")
 weekend_data = pd.read_csv("theWeekndAf_final.csv")
 kworb_data = pd.read_csv("kworb_global.csv")
 
-# Create a Streamlit sidebar for user input
-st.sidebar.header("User Input")
-
 # Title and Artist Introduction
 st.title("The Weeknd Discography")
 st.image("https://s3.amazonaws.com/media.thecrimson.com/photos/2020/04/02/211518_1343746.jpg", use_column_width=True)
@@ -137,7 +134,7 @@ st.plotly_chart(scatterplot)
 st.markdown("---")
 
 # Group the data by album name and calculate the mean of audio features within each group
-grouped_data = weekend_data.groupby(['album_name'])[
+grouped_data = weekend_data.groupby('album_name')[
     'popularity', 'danceability', 'energy', 'tempo', 'valence'].mean().reset_index()
 
 # Create a graph with audio features by album name
