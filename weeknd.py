@@ -133,25 +133,25 @@ st.plotly_chart(scatterplot)
 
 st.markdown("---")
 
-# Group the data by album name and calculate the mean of audio features within each group
-grouped_data = weekend_data.groupby(['album_name'])[
-    'popularity', 'danceability', 'energy', 'tempo', 'valence'].mean().reset_index()
+# # Group the data by album name and calculate the mean of audio features within each group
+# grouped_data = weekend_data.groupby(['album_name'])[
+#     'popularity', 'danceability', 'energy', 'tempo', 'valence'].mean().reset_index()
 
-# Create a graph with audio features by album name
-st.header("Audio Features by Album Name")
+# # Create a graph with audio features by album name
+# st.header("Audio Features by Album Name")
 
-# Define the audio features to plot
-audio_features = ['popularity', 'danceability', 'energy', 'tempo', 'valence']
+# # Define the audio features to plot
+# audio_features = ['popularity', 'danceability', 'energy', 'tempo', 'valence']
 
-# Create a bar chart for each audio feature
-for feature in audio_features:
-    fig = px.bar(
-        grouped_data,
-        x='album_name',
-        y=feature,
-        title=f"{feature.capitalize()} by Album Name",
-    )
-    st.plotly_chart(fig)
+# # Create a bar chart for each audio feature
+# for feature in audio_features:
+#     fig = px.bar(
+#         grouped_data,
+#         x='album_name',
+#         y=feature,
+#         title=f"{feature.capitalize()} by Album Name",
+#     )
+#     st.plotly_chart(fig)
 
 st.markdown("---")
 
