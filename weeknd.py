@@ -133,25 +133,25 @@ st.plotly_chart(scatterplot)
 
 st.markdown("---")
 
-# # Group the data by album name and calculate the mean of audio features within each group
-# grouped_data = weekend_data.groupby(['album_name'])[
-#     'popularity', 'danceability', 'energy', 'tempo', 'valence'].mean().reset_index()
+# Group the data by album name and calculate the mean of audio features within each group
+grouped_data = weekend_data.groupby(['album_name'])[
+    'popularity', 'danceability', 'energy', 'tempo', 'valence'].mean().reset_index()
 
-# # Create a graph with audio features by album name
-# st.header("Audio Features by Album Name")
+# Create a graph with audio features by album name
+st.header("Audio Features by Album Name")
 
-# # Define the audio features to plot
-# audio_features = ['popularity', 'danceability', 'energy', 'tempo', 'valence']
+# Define the audio features to plot
+audio_features = ['popularity', 'danceability', 'energy', 'tempo', 'valence']
 
-# # Create a bar chart for each audio feature
-# for feature in audio_features:
-#     fig = px.bar(
-#         grouped_data,
-#         x='album_name',
-#         y=feature,
-#         title=f"{feature.capitalize()} by Album Name",
-#     )
-#     st.plotly_chart(fig)
+# Create a bar chart for each audio feature
+for feature in audio_features:
+    fig = px.bar(
+        grouped_data,
+        x='album_name',
+        y=feature,
+        title=f"{feature.capitalize()} by Album Name",
+    )
+    st.plotly_chart(fig)
 
 st.markdown("---")
 
@@ -181,8 +181,31 @@ average_features = weekend_data[["popularity", "danceability", "energy", "tempo"
 st.header("Average Audio Features")
 st.write(average_features)
 
-st.subheader('summary points of each feature')
-st.write('concluding points')
+# Section: The Weeknd's Sound Evolution
+st.header("The Weeknd's Sound Evolution")
+
+st.markdown("Let's have a look at how The Weeknd's unique sounds evolve with each album. With every album, we can clearly see a progressive change in some of the audio features, while some are quite consistent throughout the albums.")
+
+# Overall Tempo
+st.subheader("Overall Tempo:")
+st.markdown("🎵 (124 bpm)")
+st.markdown("Looking at the average tempo of the albums, there is a consistency with the average being 124 bpm for all albums. This bpm typically falls in the Pop genre, although his music style is considered as alternative R&B, according to his Wikipedia page. (Reference: Figure titled 'The Evolution of The Weeknd's Sounds')")
+
+# Overall Moods
+st.subheader("Overall Moods:")
+st.markdown("😢 (0.3/1)")
+st.markdown("In terms of the overall mood of the albums, measured by the valence scores, his first debut album House of Balloons appears to be the most darkest, while Starboy is the most positive album. Nonetheless, the average valence score of 0.3 across all his albums indicates the reoccurring melancholy theme in every album that is consistent with the 'character' or the public image Abel creates for The Weeknd, along with the dark & sexual lyrics and his eccentric lifestyle. (References: Figure titled 'The Evolution of The Weeknd's Sounds', Table titled 'Summary of All Albums')")
+
+# Overall Danceability and Energy
+st.subheader("Overall Danceability and Energy:")
+st.markdown("🧍 (0.6/1)")
+st.markdown("The average danceability and energy score of 0.6 out of 1 across all albums also supports the perceived musical and character style of The Weeknd. Let's face it, they are not the go-to for dancing. His songs serve a completely different purpose 😈😉 (References: Figure titled 'The Evolution of The Weeknd's Sounds', Table titled 'Summary of All Albums')")
+
+# Overall Popularity
+st.subheader("Overall Popularity:")
+st.markdown("🔥 (52/100)")
+st.markdown("Lastly, there is a progressive growth in the average popularity of the tracks with every new album released. However, we see a big dip in popularity for Beauty Behind the Madness. Perhaps, the album did not get the right amount of exposure due to the mega success of the album Starboy that was released following in the same year. Needless to say, this data is only from Spotify, so we can only assume within the context of streaming data on Spotify. (References: Figure titled 'The Evolution of The Weeknd's Sounds', Table titled 'Summary of All Albums')")
+
 
 st.markdown("---")
 
@@ -244,4 +267,4 @@ st.plotly_chart(fig)
 st.markdown("---")
 
 st.header('Conclusion')
-st.write('closing points')
+st.write("Although every album has it's own characteristic style, whether it be a dark R&B themed House of Balloons or futuristic 80's themed Dawn FM, The Weeknd has successfully been able to create music with consistent mood and tempo that makes his sounds unique for the listeners: moody, mysterious and melancholy.")
